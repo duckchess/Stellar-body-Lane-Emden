@@ -1,0 +1,444 @@
+% ============================================================
+% References compiled from research discussion on Tooper (1964)
+% relativistic Lane-Emden equations and the search for gaps in
+% the literature (Chebyshev / homotopy analysis / matched
+% asymptotic / ANN methods applied to the n>2 convergence problem)
+% ============================================================
+
+% ------------------------------------------------------------
+% Foundational Lane-Emden and polytrope sources
+% (directly cited in StellarBody.typ)
+% ------------------------------------------------------------
+"
+@article{Lane1870,
+  author  = {Lane, J. Homer},
+  title   = {On the Theoretical Temperature of the Sun, under the Hypothesis of a Gaseous Mass Maintaining Its Volume by Its Internal Heat, and Depending on the Laws of Gases as Known to Terrestrial Experiment},
+  journal = {American Journal of Science},
+  year    = {1870},
+  series  = {2},
+  volume  = {50},
+  number  = {148},
+  pages   = {57--74},
+  doi     = {10.2475/ajs.s2-50.148.57}
+}
+
+@book{Emden1907,
+  author    = {Emden, Robert},
+  title     = {Gaskugeln: Anwendungen der mechanischen W{\"a}rmetheorie auf kosmologische und meteorologische Probleme},
+  publisher = {B.G. Teubner},
+  address   = {Leipzig and Berlin},
+  year      = {1907}
+}
+
+@book{Collins1989,
+  author    = {Collins, George W.},
+  title     = {The Fundamentals of Stellar Astrophysics},
+  publisher = {W.H. Freeman \& Company},
+  address   = {New York},
+  year      = {1989},
+  isbn      = {0716719932}
+}
+
+@article{ChristensenDalsgaard1996,
+  author  = {Christensen-Dalsgaard, J. and D{\"a}ppen, W. and Ajukov, S. V. and others},
+  title   = {The Current State of Solar Modeling},
+  journal = {Science},
+  year    = {1996},
+  volume  = {272},
+  number  = {5266},
+  pages   = {1286--1292},
+  doi     = {10.1126/science.272.5266.1286}
+}
+
+@article{BahcallSerenelliBasu2005,
+  author  = {Bahcall, John N. and Serenelli, Aldo M. and Basu, Sarbani},
+  title   = {New Solar Opacities, Abundances, Helioseismology, and Neutrino Fluxes},
+  journal = {The Astrophysical Journal Letters},
+  year    = {2005},
+  volume  = {621},
+  number  = {1},
+  pages   = {L85--L88},
+  doi     = {10.1086/428929}
+}
+
+@article{Sedek2016,
+  author  = {Sedek, M. and El-Zafarani, H. and Amin, Magdy Y. and Hayman, Z. M.},
+  title   = {Composite Polytropic Models of the Sun},
+  journal = {International Journal of Advanced Research},
+  year    = {2016},
+  volume  = {4},
+  number  = {3},
+  pages   = {1819--1826},
+  issn    = {2320-5407}
+}
+
+@article{Fronsdal2014,
+  author  = {Fr{\o}nsdal, Christian},
+  title   = {Heat and Gravitation. {I}. The Action Principle},
+  journal = {Entropy},
+  year    = {2014},
+  volume  = {16},
+  number  = {3},
+  pages   = {1515--1546},
+  doi     = {10.3390/e16031515},
+  eprint  = {0812.4990},
+  archivePrefix = {arXiv}
+}
+
+
+%
+% ------------------------------------------------------------
+% The original paper
+% ------------------------------------------------------------
+
+@article{Tooper1964,
+  author  = {Tooper, R. F.},
+  title   = {General Relativistic Polytropic Fluid Spheres},
+  journal = {The Astrophysical Journal},
+  year    = {1964},
+  volume  = {140},
+  pages   = {434--459},
+  doi     = {10.1086/147938},
+  bibcode = {1964ApJ...140..434T}
+}
+
+% ------------------------------------------------------------
+% Foundational follow-on GR stellar-structure theory
+% (stability, rotation, collapse -- closing the original gaps)
+% ------------------------------------------------------------
+
+@article{Chandrasekhar1964a,
+  author  = {Chandrasekhar, S.},
+  title   = {Dynamical Instability of Gaseous Masses Approaching the Schwarzschild Limit in General Relativity},
+  journal = {Physical Review Letters},
+  year    = {1964},
+  volume  = {12},
+  pages   = {114--116},
+  note    = {Erratum: 12, 437}
+}
+
+@article{Chandrasekhar1964b,
+  author  = {Chandrasekhar, S.},
+  title   = {A General Variational Principle Governing the Radial and the Non-Radial Oscillations of Gaseous Masses},
+  journal = {The Astrophysical Journal},
+  year    = {1964},
+  volume  = {140},
+  pages   = {417--433},
+  doi     = {10.1086/147938}
+}
+
+@article{FriedmanIpserSorkin1988,
+  author  = {Friedman, J. L. and Ipser, J. R. and Sorkin, R. D.},
+  title   = {Turning-point method for axisymmetric stability of rotating relativistic stars},
+  journal = {The Astrophysical Journal},
+  year    = {1988},
+  volume  = {325},
+  pages   = {722--724},
+  doi     = {10.1086/166043}
+}
+
+@article{Hartle1967,
+  author  = {Hartle, J. B.},
+  title   = {Slowly Rotating Relativistic Stars. I. Equations of Structure},
+  journal = {The Astrophysical Journal},
+  year    = {1967},
+  volume  = {150},
+  pages   = {1005--1029},
+  doi     = {10.1086/149400}
+}
+
+@article{KomatsuEriguchiHachisu1989,
+  author  = {Komatsu, H. and Eriguchi, Y. and Hachisu, I.},
+  title   = {Rapidly rotating general relativistic stars -- I. Numerical method and its application to uniformly rotating polytropes},
+  journal = {Monthly Notices of the Royal Astronomical Society},
+  year    = {1989},
+  volume  = {237},
+  pages   = {355--379}
+}
+
+@article{CookShapiroTeukolsky1994,
+  author  = {Cook, G. B. and Shapiro, S. L. and Teukolsky, S. A.},
+  title   = {Rapidly Rotating Polytropes in General Relativity},
+  journal = {The Astrophysical Journal},
+  year    = {1994},
+  volume  = {422},
+  pages   = {227--242},
+  doi     = {10.1086/173721}
+}
+
+@article{StergioulasFriedman1995,
+  author  = {Stergioulas, N. and Friedman, J. L.},
+  title   = {Comparing Models of Rapidly Rotating Relativistic Stars Constructed by Two Numerical Methods},
+  journal = {The Astrophysical Journal},
+  year    = {1995},
+  volume  = {444},
+  pages   = {306--311},
+  doi     = {10.1086/175605},
+  eprint  = {astro-ph/9411032}
+}
+
+@article{Stergioulas2003,
+  author  = {Stergioulas, N.},
+  title   = {Rotating Stars in Relativity},
+  journal = {Living Reviews in Relativity},
+  year    = {2003},
+  volume  = {6},
+  number  = {1},
+  pages   = {3},
+  doi     = {10.12942/lrr-2003-3}
+}
+
+@article{PaschalidisStergioulas2017,
+  author  = {Paschalidis, Vasileios and Stergioulas, Nikolaos},
+  title   = {Rotating stars in relativity},
+  journal = {Living Reviews in Relativity},
+  year    = {2017},
+  volume  = {20},
+  number  = {1},
+  pages   = {7},
+  doi     = {10.1007/s41114-017-0008-x}
+}
+
+@article{ShapiroTeukolsky1979,
+  author  = {Shapiro, S. L. and Teukolsky, S. A.},
+  title   = {Gravitational collapse of supermassive stars to black holes: Numerical solution of the Einstein equations},
+  journal = {The Astrophysical Journal},
+  year    = {1979},
+  volume  = {234},
+  pages   = {L177--L181}
+}
+
+@article{SunRuizShapiro2018a,
+  author  = {Sun, Luyao and Ruiz, Milton and Shapiro, Stuart L.},
+  title   = {Magnetorotational collapse of supermassive stars: Black hole formation, gravitational waves, and jets},
+  journal = {Physical Review D},
+  year    = {2018},
+  volume  = {98},
+  pages   = {103008},
+  doi     = {10.1103/PhysRevD.98.103008}
+}
+
+@article{SunRuizShapiro2018b,
+  author  = {Sun, Luyao and Ruiz, Milton and Shapiro, Stuart L.},
+  title   = {Slowly rotating supermassive stars: An analytic uniqueness result and unified description with rapid uniform rotation},
+  journal = {Physical Review D},
+  year    = {2018},
+  eprint  = {1807.07970},
+  archivePrefix = {arXiv}
+}
+
+% ------------------------------------------------------------
+% The Nouh / Saad / Abdel-Salam / Azzam lineage
+% (main "gap" research thread -- analytic series solutions
+% to Tooper's equations, and its extensions)
+% ------------------------------------------------------------
+
+@article{Nouh2004,
+  author  = {Nouh, M. I.},
+  title   = {Accelerated power series solution of polytropic and isothermal gas spheres},
+  journal = {New Astronomy},
+  year    = {2004},
+  volume  = {9},
+  number  = {6},
+  pages   = {467--473},
+  doi     = {10.1016/j.newast.2004.02.003}
+}
+
+@article{NouhSaad2013,
+  author  = {Nouh, M. I. and Saad, A. S.},
+  title   = {A New Analytical Solution to the Relativistic Polytropic Fluid Spheres},
+  journal = {International Review of Physics},
+  year    = {2013},
+  volume  = {7},
+  number  = {1},
+  pages   = {16},
+  eprint  = {1406.1455},
+  archivePrefix = {arXiv},
+  note    = {arXiv preprint dated 2014}
+}
+
+@article{SaadNouhShakerKamel2017,
+  author  = {Saad, A. S. and Nouh, M. I. and Shaker, A. A. and Kamel, T. M.},
+  title   = {Approximate Analytical Solutions to the Relativistic Isothermal Gas Spheres},
+  journal = {Revista Mexicana de Astronom\'{i}a y Astrof\'{i}sica},
+  year    = {2017},
+  volume  = {53},
+  pages   = {247}
+}
+
+@article{NouhAzzamAbdelSalam2021,
+  author  = {Nouh, M. I. and Azzam, Y. A. and Abdel-Salam, E. A.-B.},
+  title   = {Modeling fractional polytropic gas spheres using artificial neural network},
+  journal = {Neural Computing and Applications},
+  year    = {2021},
+  volume  = {33},
+  pages   = {4533--4546},
+  doi     = {10.1007/s00521-020-05277-9},
+  eprint  = {2006.15445},
+  archivePrefix = {arXiv}
+}
+
+@article{AzzamAbdelSalamNouh2021,
+  author  = {Azzam, Y. A. and Abdel-Salam, E. A.-B. and Nouh, M. I.},
+  title   = {Artificial Neural Network Modeling of the Conformable Fractional Isothermal Gas Spheres},
+  journal = {Revista Mexicana de Astronom\'{i}a y Astrof\'{i}sica},
+  year    = {2021},
+  volume  = {57},
+  number  = {1},
+  pages   = {189--198},
+  eprint  = {2010.12768},
+  archivePrefix = {arXiv}
+}
+
+@article{SaadNouhShakerKamel2021,
+  author  = {Saad, Abdel-Naby S. and Nouh, Mohamed I. and Shaker, Ashraf A. and Kamel, Tarek M.},
+  title   = {Stability Analysis of Relativistic Polytropes},
+  journal = {Revista Mexicana de Astronom\'{i}a y Astrof\'{i}sica},
+  year    = {2021},
+  volume  = {57},
+  number  = {2},
+  pages   = {407--418},
+  doi     = {10.22201/ia.01851101p.2021.57.02.13},
+  bibcode = {2021RMxAA..57..407S}
+}
+
+@article{NouhEtAl2022,
+  author  = {Nouh, M. I. and Azzam, Y. A. and Abdel-Salam, E. A.-B. and Elnagahy, F. I. and Kamel, T. M.},
+  title   = {ANN and Analytical Solutions to Relativistic Isothermal Gas Spheres},
+  journal = {Revista Mexicana de Astronom\'{i}a y Astrof\'{i}sica},
+  year    = {2022},
+  volume  = {58},
+  number  = {2},
+  pages   = {321--332},
+  doi     = {10.22201/ia.01851101p.2022.58.02.13}
+}
+
+@article{NouhAbdelSalamAzzam2023,
+  author  = {Nouh, Mohamed I. and Abdel-Salam, Emad A.-B. and Azzam, Yosry A.},
+  title   = {Artificial Neural Network Approach for Relativistic Polytropes},
+  journal = {Scientific African},
+  year    = {2023},
+  volume  = {20},
+  pages   = {e01696},
+  doi     = {10.1016/j.sciaf.2023.e01696},
+  bibcode = {2023SciAf..2001696N}
+}
+
+@article{AboueishaEtAl2023,
+  author  = {Aboueisha, Mohamed S. and Nouh, Mohamed I. and Abdel-Salam, Emad A.-B. and Kamel, Tarek M. and Beheary, M. M. and Gadallah, Kamel A. K.},
+  title   = {Analysis of the fractional relativistic polytropic gas sphere},
+  journal = {Scientific Reports},
+  year    = {2023},
+  volume  = {13},
+  pages   = {14304},
+  doi     = {10.1038/s41598-023-41392-y},
+  bibcode = {2023NatSR..1314304A}
+}
+
+@article{AboueishaEtAl2024,
+  author  = {Aboueisha, Mohamed S. and Saad, A. S. and Nouh, Mohamed I. and others},
+  title   = {Stability Analysis of Fractional Relativistic Polytropes},
+  journal = {Physica Scripta},
+  year    = {2024},
+  volume  = {99},
+  pages   = {075052},
+  doi     = {10.1088/1402-4896/ad59df},
+  eprint  = {2407.06238},
+  archivePrefix = {arXiv},
+  bibcode = {2024PhyS...99g5052A}
+}
+
+@article{NouhElkholyElEssawy2024,
+  author  = {Nouh, M. I. and Elkholy, E. A. and El-Essawy, S. H.},
+  title   = {Computing Polytropic and Isothermal Models Using Monte Carlo Method},
+  journal = {Revista Mexicana de Astronom\'{i}a y Astrof\'{i}sica},
+  year    = {2024},
+  volume  = {60},
+  number  = {1},
+  doi     = {10.22201/ia.01851101p.2024.60.01.01}
+}
+
+% ------------------------------------------------------------
+% Boyd's Newtonian precursor
+% (the spectral technique this whole lineage adapted from)
+% ------------------------------------------------------------
+
+@article{Boyd2011,
+  author  = {Boyd, John P.},
+  title   = {Chebyshev Spectral Methods and the Lane-Emden Problem},
+  journal = {Numerical Mathematics: Theory, Methods and Applications},
+  year    = {2011},
+  volume  = {4},
+  number  = {2},
+  pages   = {142--157}
+}
+
+% ------------------------------------------------------------
+% Method-search false positives
+% (checked closely and disqualified as not solving Tooper's
+% n>2 convergence problem via spectral/homotopy methods)
+% ------------------------------------------------------------
+
+@article{HerreraBarreto2004,
+  author  = {Herrera, L. and Barreto, W.},
+  title   = {Evolution of Relativistic Polytropes in the Post-Quasi-Static Regime},
+  journal = {General Relativity and Gravitation},
+  year    = {2004},
+  volume  = {36},
+  pages   = {127--150},
+  doi     = {10.1023/B:GERG.0000006698.19527.4d},
+  eprint  = {gr-qc/0309052},
+  archivePrefix = {arXiv}
+}
+
+@article{AzizRayRahamanGuha2019,
+  author  = {Aziz, A. and Ray, S. and Rahaman, F. and Guha, B. K.},
+  title   = {Neutron star under homotopy perturbation method},
+  journal = {Annals of Physics},
+  year    = {2019},
+  volume  = {409},
+  pages   = {167918},
+  doi     = {10.1016/j.aop.2019.167918}
+}
+
+% ------------------------------------------------------------
+% Adjacent / tangential material touched during searches
+% ------------------------------------------------------------
+
+@article{ChargedPolytropesCausality,
+  title   = {Relativistic polytropic spheres with electric charge: Compact stars, compactness and mass bounds, and quasiblack hole configurations},
+  year    = {2017},
+  eprint  = {1712.02210},
+  archivePrefix = {arXiv}
+}
+
+@article{LuoXinZeng2015,
+  author  = {Luo, Tao and Xin, Zhouping and Zeng, Huihui},
+  title   = {On Nonlinear Asymptotic Stability of the Lane-Emden Solutions for the Viscous Gaseous Star Problem},
+  year    = {2015},
+  eprint  = {1506.03906},
+  archivePrefix = {arXiv}
+}
+
+@article{ViscousGaseousStarDegenerate2015,
+  title   = {Asymptotic Stability of the Lane-Emden Solutions for the Viscous Gaseous Star Problem with Degenerate Density Dependent Viscosities},
+  year    = {2015},
+  eprint  = {1507.01069},
+  archivePrefix = {arXiv}
+}
+
+@article{COCAL2015,
+  title   = {Computing initial data for binary neutron star mergers in general relativity: COCAL},
+  year    = {2015},
+  eprint  = {1502.05674},
+  archivePrefix = {arXiv},
+  note    = {Schwarzschild-to-isotropic coordinate transformation of the TOV/polytrope system}
+}
+
+@article{PINNNeutronStarEOS2026,
+  title   = {Neutron Star Equation of State via Physics Informed Neural Network},
+  year    = {2026},
+  eprint  = {2605.31198},
+  archivePrefix = {arXiv},
+  note    = {Only PINN+TOV paper found; solves the inverse EOS problem, not the forward n>2 convergence problem}
+}
