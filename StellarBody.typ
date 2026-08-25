@@ -132,7 +132,7 @@ $
   P V^gamma = text("constant")
 $<pvg>
 
-This is a result that is derived from thermodynamics, assuming that there is an adiabatic condition ($idQ=0$). We will apply this condition to our stellar body. The interesting part is how even though the equation is simple, it does tend to resemble real-life stellar masses for specific values of $gamma$. It has been found that for $gamma = 4/3$ it actually corresponds to something called the "Eddington Standard Model", which is closely related to describing a star in radiative equilibrium @Collins1989. Perhaps more interestingly, for $gamma = 5/3$, it can describe (although crudely) a white dwarf.
+This is a result that is derived from thermodynamics, assuming that there is an adiabatic condition (). We will apply this condition to our stellar body. The interesting part is how even though the equation is simple, it does tend to resemble real-life stellar masses for specific values of $gamma$. It has been found that for $gamma = 4/3$ it actually corresponds to something called the "Eddington Standard Model", which is closely related to describing a star in radiative equilibrium @Collins1989. Perhaps more interestingly, for $gamma = 5/3$, it can describe (although crudely) a white dwarf.
 It may be evident that these values of $gamma$ are a little strange to work with so we will introduce a number called polytropic index $n$. Such that $gamma = 1+ 1/n$.
 
 == Lane Emden Equation
@@ -228,7 +228,7 @@ $
 $
 Considering each spherical shell we obtain the energy contributed by gravity:
 $
-  E_text("gravitation")= -int_0^R (G M)/r d M
+  E_text("gravitation")= -integral_0^R (G M)/r d M
 $
 $R$ denotes the radius of the spherical stellar body. Writing in a more useful form and using @dmdr:
 $
@@ -244,12 +244,12 @@ $
 $
 We consider each spherical shell and obtain the following thermal energy:
 $
-  E_text("thermal")= int_0^R (4 pi K)/(gamma-1) r^2 rho^gamma d r
+  E_text("thermal")= integral_0^R (4 pi K)/(gamma-1) r^2 rho^gamma d r
 $
 #pagebreak()
 We write the final form of the energy as:
 $
-  E_text("total") = int_0^R ((4 pi K)/(gamma-1) r^2 rho^gamma-4 pi G rho(r) M(r) r) d r
+  E_text("total") = integral_0^R ((4 pi K)/(gamma-1) r^2 rho^gamma-4 pi G rho(r) M(r) r) d r
 $
 We will consider that minimising the energy and thus treating it as the analog of action, will end up obtaining an EOS for the stellar body. This is the principle of the following derivation.
 == Interpretation
@@ -259,7 +259,7 @@ $
 $
 Where the action $S$ is:
 $
-  S[q]= int_(t_0)^(t_1) L(q, dot(q),t)d t
+  S[q]= integral_(t_0)^(t_1) L(q, dot(q),t)d t
 $
 However, we are instead working with functionals which resemble scalar fields. In such cases it is much more common to work with the Lagrangian density which is represented as $cal(L)$ as well, since it is commonly referred to as the Lagrangian as well, in this specific definition:
 $
@@ -656,14 +656,14 @@ $
   (d M)/(d r) = 4 pi r^2 rho(r)
 $
 $
-  int_0^R d M = 4 pi rho_c alpha^3 int_0^(xi_1) theta^n xi^2 d xi
+  integral_0^R d M = 4 pi rho_c alpha^3 integral_0^(xi_1) theta^n xi^2 d xi
 $
 We can substitute the Lane-Emden equation into the integral, $theta^n = -1 slash xi^2 dot d slash d xi (xi^2 (d theta slash d xi))$:
 $
-  M = 4 pi rho_c alpha^3 int_0^(xi_1) -1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi)) xi^2 d xi
+  M = 4 pi rho_c alpha^3 integral_0^(xi_1) -1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi)) xi^2 d xi
 $
 $
-  M = -4 pi rho_c alpha^3 int_0^(xi_1) d/(d xi)(xi^2 (d theta)/(d xi))d xi
+  M = -4 pi rho_c alpha^3 integral_0^(xi_1) d/(d xi)(xi^2 (d theta)/(d xi))d xi
 $
 From the fundamental theorem of calculus and the boundary condition $d theta slash d xi$ at $0=0$
 $
