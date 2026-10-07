@@ -1,11 +1,14 @@
 #import "verma.typ": *
 #import "theorems.typ": *
-#set math.equation(numbering: "(1.1)")
+#set math.equation(numbering: "(1.1)", supplement: [Equation])
+#set figure(supplement: [Figure])
+#show ref: set text(fill: rgb("#1a56db"))
+#show link: set text(fill: rgb("#1a56db"))
 
 #show: evan.with(
-  title: [A pedagogical review and worked derivation of the Lane-Emden equation, including an independent variational rederivation and a numerical comparison to the Model S solar model
+  title: [A Pedagogical Review of The Lane-Emden Equation
 ],
-  subtitle: "",
+  subtitle: "A pedagogical review and worked derivation of the Lane-Emden equation, including an independent variational rederivation and a numerical comparison to the Model S solar model",
   author: "Arush Datta",
   date: datetime.today(),
   report-style: true,
@@ -29,12 +32,8 @@ These are some facts which arise from combining the above assumptions.
 \
 1. Density $rho$ is a function of radius $r$ only: $rho = rho (r)$
 2. Mass $M$ is a function of radius $r$ only: $M = M(r)$
-3. Only the inner mass contributes to the gravitational force.
-The above are implications which arise from Shell Theorem. 
-
-On a general note, the above assumptions removes complexities which may lead to more complex but more accurate models. 
-
-In order to keep simplicity, Newtonian gravitation is employed. 
+3. Only the inner mass contributes to the gravitational force. 
+The above are implications which arise from shell theorem. The above assumptions are a broad simplification of the actual structure of a real stellar body. We will empoly newtonian gravitation:
 $
   F_(12) = (G M_1 M_2)/r_(12)^2
 $
@@ -42,15 +41,12 @@ The more useful form for our derivation is the differential form:
 $
   d F_(12) = (G M_1 )/r_(12)^2 d M_2
 $
-
-Very importantly, we are ignoring any relativistic effects that the Stellar body may have. 
-
-Additionally we will consider a thin shell during the computation. This will allow us to make the following assumptions:
-1. Higher orders of differentials (like $(d r)^2$) can be ignored.
-2. Change of pressure from $P(r)$ to $P(r+d r)$ can approximated as $P(r)$ to $P(r)+d P$.
+We are ignoring any relativistic effects that the stellar body may have. Additionally we will consider a thin shell during the computation. This will allow us to make the following assumptions: 
+1. Higher orders of differentials terms (like $(d r)^2$) can be ignored.
+2. Change of pressure $P(r)$ to $P(r+d r)$ can be approximated as $P(r)$ to $P(r)+d P$.
 3. Density is constant across the thin shell.
 
-Additionally, Stellar body processes like nuclear reactions, which certainly do contribute to the factors pertaining to Stellar bodies. Later on, we will discuss that trying to include this factor does lead to more accurate results. In the next section, we discuss the derivation of the hydrostatic equilibrium equation, which can be considered to be the very base of the LEE. 
+Additionally, stellar body processes like nuclear reactions, which certainly do contribute to the factors pertaining to stellar bodies. Later on, we will discuss that trying to include this factor does lead to more accurate results. In the next section, we discuss the derivation of the hydrostatic equilibrium equation.
 
 #pagebreak()
 
@@ -86,7 +82,7 @@ $
   d F_g = (G M(r) d M)/(r^2)
 $<grav>
 
-Here $F_g$ is the force due to gravity, $G$ is the gravitational constant where $G = 6.6743 times 10-11 m^3 k g^(-1) s^(-2)$, $d m$ is the mass of the thin shell and $r$ is the radius from the center of the stellar body.
+Here $F_g$ is the force due to gravity, $G$ is the gravitational constant where $G = 6.6743 times 10^(-11) m^3 k g^(-1) s^(-2)$, $d m$ is the mass of the thin shell and $r$ is the radius from the center of the stellar body.
 
 We know that:
 $
@@ -188,12 +184,12 @@ $
 We chose $alpha$ as:
 $
   alpha equiv [(K (n+1) rho^(1/n))/(4 pi G rho_c)]^(1/2)
-$
+$<alpha-def>
 Thus we can obtain the final equation:
 $
   1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi)) = -theta^n
-$
-This is called the Lane-Emden Equation.
+$<lee>
+This is called the Lane-Emden Equation, and we will refer back to it as @lee.
 
 == Boundary Conditions
 
@@ -337,11 +333,11 @@ Simplifying and rearranging we obtain:
 $
   1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi))=-alpha^2 [(4 pi G rho_c)/(K (n+1) rho_c^(1/n))] theta^n
 $
-We can define $alpha$ as:
+We can define $alpha$ exactly as in @alpha-def:
 $
   alpha equiv [(K (n+1) rho^(1/n))/(4 pi G rho_c)]^(1/2)
 $
-We obtain the Lane-Emden again:
+We recover the Lane-Emden equation (@lee) again:
 $
   1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi)) = -theta^n
 $
@@ -547,7 +543,7 @@ $
 It is important to establish that this is not an analytical solution and will only give better approximations when the series is expanded for higher order. Interestingly, the radius of the physical stellar body is at $xi_1 approx 4.3528$. Moreover, this series converges for $xi<=15.7179$, this is due to the fact that there exists two singularities at $xi approx pm 15.7179i$, thus the radius of convergence is not infinite. Deriving this is not taken up as additional numerical analysis is required for it.
 
 #pagebreak()
-== Numerical Analysis
+== Numerical Analysis <sec:numerics>
 
 I will be using Python 3.13.11, numpy, matplotlib and scipy in order to carry out the numerical analysis. Using the solve_ivp module from scipy in order to solve the ODE. The reason for this choice is nothing other than just familiarity for me. I assume any other method such as odeint should also work.
 
@@ -558,8 +554,8 @@ $
 The Lane-Emden can thus be decomposed to:
 $
   (d u_1)/(d xi) = u_2, quad (d u_2)/(d xi) = -u_1^n - 2/ xi u_2
-$
-The code which encodes the above is taken up by a defined function called the _lane_emden_:
+$<lee-system>
+The code which encodes @lee-system is taken up by a defined function called the _lane_emden_:
 ```py
 def lane_emden(xi, J, n):
     u1, u2 = J
@@ -594,10 +590,11 @@ def solve(n):
     )
     return sol
 ```
-The above _solve_ function take a value of $n$ and uses the _lane_emden_ function as one of its parameters and solves it using the solve_ivp module from scipy. Internally, it uses the Runge-Kutta method of order 5(4). This is an iterative numerical technique which is used to solve ODEs. Exact information about the function is documented in the python file itself. The rest of the file deals with just the appearance and how the graph is represented. Using the code, we obtain the following graph:
-#align(center)[
-  #image("assets/Lane-Emden_Polytropes.png", width: 500pt)
-]
+The above _solve_ function take a value of $n$ and uses the _lane_emden_ function as one of its parameters and solves it using the solve_ivp module from scipy. Internally, it uses the Runge-Kutta method of order 5(4). This is an iterative numerical technique which is used to solve ODEs. Exact information about the function is documented in the python file itself. The rest of the file deals with just the appearance and how the graph is represented. Using the code, we obtain @fig:polytropes:
+#figure(
+  image("assets/Lane-Emden_Polytropes.png", width: 500pt),
+  caption: [Numerical solutions $theta(xi)$ of the Lane-Emden equation for several polytropic indices $n$.],
+)<fig:polytropes>
 Interestingly, the case of the $n=5$ has an infinite radius, this actually shows that the $n=5$ polytrope and beyond do not have any physical relevance. However, certain special cases do. Such as $n=1.5$, which model the non-relativistic degenerate electron masses such as fully convective low-mass stars and low-mass white dwarves. For $n=3$, it can model relativistic white-dwarves or radiation pressure dominated star.
 
 However, as we will see shortly, these polytropes are only approximations and have their limitations.
@@ -624,11 +621,11 @@ However, as we will see shortly, these polytropes are only approximations and ha
 
 == Comparison of Lane-Emden Model with Stellar Observational Data
 
-=== Radius Comparison
+=== Radius Comparison <sec:radius>
 
 From the numerical analysis, we conducted in the previous section. We have found the radius of the surface and the distribution of the stellar mass. In order to compare what the ability of the Lane-Emden equation is able to predict with respect to stellar observations, we need to make certain assumptions and then see if it stays valid for other quantities.
 
-To do so, we must convert the $xi$ back to radius $r$. Once, this has been calculated we can actually start to compare it to real stellar observation. We know that $r = alpha xi$. Correctly, determining the value of $alpha$ will determine the value of $r$. Previously from the relationship of $alpha$ we found before:
+To do so, we must convert the $xi$ back to radius $r$. Once, this has been calculated we can actually start to compare it to real stellar observation. We know that $r = alpha xi$. Correctly, determining the value of $alpha$ will determine the value of $r$. Previously from the relationship of $alpha$ given in @alpha-def:
 $
   alpha equiv [(K (n+1) rho^(1/n))/(4 pi G rho_c)]^(1/2)
 $
@@ -658,7 +655,7 @@ $
 $
   integral_0^R d M = 4 pi rho_c alpha^3 integral_0^(xi_1) theta^n xi^2 d xi
 $
-We can substitute the Lane-Emden equation into the integral, $theta^n = -1 slash xi^2 dot d slash d xi (xi^2 (d theta slash d xi))$:
+We can substitute the Lane-Emden equation (@lee) into the integral, $theta^n = -1 slash xi^2 dot d slash d xi (xi^2 (d theta slash d xi))$:
 $
   M = 4 pi rho_c alpha^3 integral_0^(xi_1) -1/xi^2 d/(d xi)(xi^2 (d theta)/(d xi)) xi^2 d xi
 $
@@ -683,7 +680,7 @@ $
                                     ) times 100 \
                          %"Error" & = 37.61%
 $
-The 37.61% error in predicted mass is comparable in magnitude to the 33.52% radius error found in §3.3.1.
+The 37.61% error in predicted mass is comparable in magnitude to the 33.52% radius error found in @sec:radius.
 This consistency suggests both discrepancies share a common reason, the inability of a single polytropic index to capture the structural transition between the solar radiative core and convective envelope.
 A model that better reproduces one quantity would likely improve the other simultaneously, since both depend on the same underlying density profile.
 
@@ -691,16 +688,18 @@ A model that better reproduces one quantity would likely improve the other simul
 
 The Model S @ChristensenDalsgaard1996 has an online repository of the standard solar data. Using the repository and plotting it against the density profile of the Lane-Emden, we can graphically and numerically observe the accuracy of the Lane-Emden Equation to predict a density profile. The repository and the code which I used to plot it will be listed in the GitHub repository for ease of access. A more detailed explanation of the code is written in the code itself. However, I will explain the code generally here as well.
 
-Using the _scipy_ library in a similar fashion to §3.2. We can evaluate the function for $n=3$ only. We can download the Model S data in a _.txt_ file and use _np.loadtxt_ in order to parse the text file. Storing the data in terms of arrays. Additionally, the Model S data is stored in terms of CGS units, so we convert to SI for familiarity and consistency. Moreover, the array is to be reversed as the Model S stores the data from surface to center. We can reproduce the calculations in §3.3.1 in order to evaluate the radius $r$ and density $rho$ for each point from the Lane-Emden. There is a normalisation step, which constraints each of the graphical variables from $0$ to $1$.  We have to perform an interpolation in order to compare the densities of the same radius. Which constructs a continuous density function of the Lane-Emden from which we evaluate the continuous density function at the points of the Model S only. We also find the RMS error and maximum error by computing it using:
+Using the _scipy_ library in a similar fashion to @sec:numerics. We can evaluate the function for $n=3$ only. We can download the Model S data in a _.txt_ file and use _np.loadtxt_ in order to parse the text file. Storing the data in terms of arrays. Additionally, the Model S data is stored in terms of CGS units, so we convert to SI for familiarity and consistency. Moreover, the array is to be reversed as the Model S stores the data from surface to center. We can reproduce the calculations in @sec:radius in order to evaluate the radius $r$ and density $rho$ for each point from the Lane-Emden. There is a normalisation step, which constraints each of the graphical variables from $0$ to $1$.  We have to perform an interpolation in order to compare the densities of the same radius. Which constructs a continuous density function of the Lane-Emden from which we evaluate the continuous density function at the points of the Model S only. We also find the RMS error and maximum error by computing it using:
 $
   text("%RMS Error") = sqrt(1/N sum_(i=1)^N (Delta rho_i)^2)times 100,quad text("%Maximum Error") = text("max")_i|Delta rho_i| times 100
 $
 The maximum error is found by finding the index of the array which stores the maximum difference.
 
-The following plot is obtained:
+The resulting comparison is shown in @fig:mods:
 
-#align(center)[
-  #image("assets/ModS_Pol.png", width: 450pt)]
+#figure(
+  image("assets/ModS_Pol.png", width: 450pt),
+  caption: [Density profile of the $n=3$ polytrope compared against Model S.],
+)<fig:mods>
 
 #pagebreak()
 
